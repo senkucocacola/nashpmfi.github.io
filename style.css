@@ -1,0 +1,105 @@
+/* Сброс базовых отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Шрифты и фон страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка сайта */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+/* Сетка категорий */
+.categories-grid {
+    display: grid;
+    /* Автоматически подстраивает количество колонок под ширину экрана */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Карточка категории */
+.category-card {
+    position: relative; 
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 1 / 1; /* Делает все карточки идеально квадратными */
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект приподнимания при наведении */
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Картинка внутри карточки */
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Важно: картинка не растягивается, а обрезается по краям */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Плавное увеличение картинки при наведении */
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Темная подложка поверх фото для читаемости текста */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover .overlay {
+    opacity: 1;
+}
+
+/* Текст названия категории */
+.overlay h3 {
+    color: #fff;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+/* Адаптивность для совсем маленьких экранов */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .overlay h3 {
+        font-size: 1.4rem;
+    }
+}
